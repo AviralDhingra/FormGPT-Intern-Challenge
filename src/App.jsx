@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {
-  Routes,
   Route,
+  Routes,
   useLocation
 } from 'react-router-dom';
 
@@ -13,8 +13,8 @@ import AOS from 'aos';
 import Page from './pages/Page';
 
 import Create from './pages/Create';
-import Edit from './pages/formview/Edit';
 import FillForm from './pages/FillForm';
+import Edit from './pages/formview/Edit';
 
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Page title="Home Page"><p>Demo</p></Page>} />
         <Route path="/create" element={<Page title="Create Form"><Create /></Page>} />
         <Route path="/forms/edit/:formId" element={<Page title="Edit"><Edit /></Page>} />
 				<Route path="/form/:formId" element={<FillForm />} />

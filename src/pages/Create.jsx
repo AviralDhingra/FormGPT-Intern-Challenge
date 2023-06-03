@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // import Sidebar from '../partials/Sidebar';
@@ -22,25 +22,25 @@ function Create() {
   const [modalOpen, setModalOpen] = useState(false);
 	const navigate = useNavigate();
 
-  useEffect(() => {
-		// Checked logged in
-		const id = localStorage.getItem("id");
-		if (id === null) {
-			navigate("/");
-		} else {
-      post("/idToName", {"id":id})
-      .then((name) => {
-        if (name["name"].length === 0) {
-					localStorage.clear();
-          navigate("/");
-        } else {
-          setName(name["name"][0]["name"]);
+  // useEffect(() => {
+	// 	// Checked logged in
+	// 	const id = localStorage.getItem("id");
+	// 	if (id === null) {
+	// 		navigate("/");
+	// 	} else {
+  //     post("/idToName", {"id":id})
+  //     .then((name) => {
+  //       if (name["name"].length === 0) {
+	// 				localStorage.clear();
+  //         navigate("/");
+  //       } else {
+  //         setName(name["name"][0]["name"]);
 
-          setUserId(id);
-        }
-      });
-    }
-  }, []);
+  //         setUserId(id);
+  //       }
+  //     });
+  //   }
+  // }, []);
 	
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -88,7 +88,7 @@ function Create() {
             
               {/* Left: Title */}
               <div className="mb-4 sm:mb-0">
-                <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">Create</h1>
+                <h1 className="text-2xl md:text-3xl text-slate-800 font-bold">Create Your Own Form</h1>
               </div>
             
             </div>
