@@ -4,3 +4,7 @@
     @apply p-10;
     @apply shadow-xl;
 }
+
+.border_focus {
+    @apply focus:border-slate-100;
+}

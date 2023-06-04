@@ -121,7 +121,7 @@ function Squares({ squares, handleSubmit, redirect, colors }) {
               <input
                 ref={i + 1 === squares.length ? inputRef : null}
                 name="response"
-                className="mt-5 h-10 border-2 border-slate-100 rounded-md w-5/6"
+                className="mt-5 h-10 border-2 border-slate-100 rounded-md w-5/6 border_focus p-2"
                 disabled={square["state"] > 0}
               />
               {square["state"] > 0 ? (
