@@ -69,6 +69,7 @@ function FormCreate({ handleSubmit, values, error }) {
             className="form-input w-full"
             type="text"
             name="name"
+            placeholder="Restraunt Review"
             defaultValue={values.length === 0 ? "" : values["name"]}
           />
         </div>
@@ -104,6 +105,7 @@ function FormCreate({ handleSubmit, values, error }) {
               "1. How was your experience at our restaurant? \n\n2. What about our services did you like? \n\n3. What about our services did you dislike? \n\n4. Is there anything else you would like to share?"
             }
             defaultValue={values.length === 0 ? "" : values["questions"]}
+            desc="May or may not include the inital question."
           />
         </div>
 
@@ -122,6 +124,7 @@ function FormCreate({ handleSubmit, values, error }) {
               "E.g. Invite the customer to come back and tell them about our 10% sale on Friday."
             }
             defaultValue={values.length === 0 ? "" : values["initialPrompting"]}
+            desc="Give additional instructions or information to FormGPT during the questioning phase."
           />
         </div>
 
@@ -138,6 +141,7 @@ function FormCreate({ handleSubmit, values, error }) {
             name="summaryPrompting"
             placeholder={`E.g. Make sure to mention what the customer said about our milkshake.`}
             defaultValue={values.length === 0 ? "" : values["summaryPrompting"]}
+            desc="If you would like to, provide additional instructions for the conversation summarizing phase. Note that this will not ask the user about the milkshake, but only guarentee that it is mentioned in the summary if the customer did!"
           />
         </div>
 
@@ -152,7 +156,9 @@ function FormCreate({ handleSubmit, values, error }) {
             className="form-input w-full"
             type="text"
             name="table"
+            placeholder={"E.g. How did the customer describe their experience?"}
             defaultValue={values.length === 0 ? "" : values["tbl"]}
+            desc="Provide a list of columns in a table. They should be formatted as questions that will have been answered and separated newlines (pressing Enter). Note that this will not guarentee this information is recorded, but instead create a table including exclusively this information! A column will be added for NPS if enabled."
           />
         </div>
 
@@ -175,7 +181,25 @@ function FormCreate({ handleSubmit, values, error }) {
             <HiInformationCircle className="text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
             {hoveredInputs[0] && (
               <div className="absolute bg-gray-800 text-white text-sm px-4 py-2 rounded-md right-4 bottom-full mb-2 w-64 sm:w-56">
-                May or may not include the initial question.
+                <div className="text-xs mt-1">
+                  This settings should be on for feedback forms and likely left
+                  off for others.
+                  <br />
+                  <a
+                    href="https://www.hotjar.com/net-promoter-score/"
+                    target="_blank"
+                    className="text-indigo-500 hover:text-indigo-600"
+                  >
+                    Net Promoter Score
+                  </a>{" "}
+                  (NPS) measures customer advocacy on a 0-10 scale, and then
+                  colates those individual responses to a net promotion number
+                  from -100 to 100. It's a powerful tool for assessing
+                  satisfaction, identifying critical responses, and driving
+                  strategic decisions for business success. FormGPT automates
+                  NPS calculation and graphing, without specifically needing to
+                  ask for a number from 0-10.
+                </div>
               </div>
             )}
           </div>
@@ -289,7 +313,7 @@ function FormCreate({ handleSubmit, values, error }) {
             className="text-blue-500 block text-sm font-medium mb-1"
             htmlFor="default"
           >
-            Logo
+            Logo Link
           </label>
           <input
             className="form-input w-full"
@@ -299,10 +323,10 @@ function FormCreate({ handleSubmit, values, error }) {
             onChange={handleLogoChange}
             defaultValue={values.length === 0 ? "" : values["logo"]}
           />
-          <div className="text-xs mt-1">
+          {/* <div className="text-xs mt-1">
             Write a link to a logo to be displayed in the top-left corner. It
             will be resized to a square.
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -20,7 +20,7 @@ const AutoResizeTextarea = (props) => {
     };
   }, []);
 
-  const { defaultValue, ...restProps } = props;
+  const { defaultValue, desc, ...restProps } = props;
 
   const [hoveredInputs, setHoveredInputs] = useState([]);
 
@@ -84,18 +84,20 @@ const AutoResizeTextarea = (props) => {
         }}
         rows={1}
       />
-      <div
-        className="bottom-1 absolute inset-y-0 right-0 pr-3 flex items-center cursor-default"
-        onMouseEnter={() => handleMouseEnter(0)}
-        onMouseLeave={() => handleMouseLeave(0)}
-      >
-        <HiInformationCircle className="text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
-        {hoveredInputs[0] && (
-          <div className="absolute bg-gray-800 text-white text-sm px-4 py-2 rounded-md right-4 bottom-full mb-2 w-64 sm:w-56">
-            May or may not include the initial question.
-          </div>
-        )}
-      </div>
+      {desc ? (
+        <div
+          className="bottom-1 absolute inset-y-0 right-0 pr-3 flex items-center cursor-default"
+          onMouseEnter={() => handleMouseEnter(0)}
+          onMouseLeave={() => handleMouseLeave(0)}
+        >
+          <HiInformationCircle className="text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" />
+          {hoveredInputs[0] && (
+            <div className="absolute bg-gray-800 text-white text-sm px-4 py-2 rounded-md right-4 bottom-full mb-2 w-64 sm:w-56">
+              {desc}
+            </div>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };
