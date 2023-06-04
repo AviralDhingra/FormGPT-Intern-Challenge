@@ -94,7 +94,7 @@ function Squares({ squares, handleSubmit, redirect, colors }) {
             style={{ backgroundColor: colors[1] }}
           >
             <h1 className="text-lg font-semibold mb-2">
-              <Text bg={colors[1]}>#{i + 1}:</Text>
+              <Text bg={colors[1]}>#{i + 1}</Text>
             </h1>
             <p>
               <Text bg={colors[1]}>{square["resp"]}</Text>
@@ -112,7 +112,7 @@ function Squares({ squares, handleSubmit, redirect, colors }) {
             style={{ backgroundColor: colors[1] }}
           >
             <h1 className="text-lg font-semibold mb-2">
-              <Text bg={colors[1]}>#{i + 1}:</Text>
+              <Text bg={colors[1]}>#{i + 1}</Text>
             </h1>
             <p>
               <Text bg={colors[1]}>{square["resp"]}</Text>
