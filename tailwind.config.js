@@ -5,11 +5,12 @@ module.exports = {
     extend: {
       colors: {
         slate: {
-          900: "#1E293B",
+          900: "#101D2D",
         },
         blue: {
-          500: "#151E3F",
-          600: "#030027",
+          400: "#5696FF",
+          500: "#2174EA",
+          600: "#0648A2",
         },
       },
       fontFamily: {

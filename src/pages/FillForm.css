@@ -1,0 +1,6 @@
+.square {
+    @apply border-none;
+    @apply rounded-lg;
+    @apply p-10;
+    @apply shadow-xl;
+}
